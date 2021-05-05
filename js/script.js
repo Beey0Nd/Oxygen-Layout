@@ -13,7 +13,7 @@ scrollUp.addEventListener("click", () => {
 });
 
 // <-----_________________Функция обработчика событий для кнопок___________
-function navEventListener(){
+function navEventListener() {
     const scrollNavArr = document.querySelectorAll(".scroll-to"); // Добавление кнопок в массив
     let scrollHeight;
     for (let i = 0; i < scrollNavArr.length; i++) { // Навешиваем обработчик событий на все кнопки в массиве
@@ -21,12 +21,12 @@ function navEventListener(){
             scrollHeight = collectSections(i);
             scrollToGeneral(scrollHeight);
         });
-    }  
+    }
 }
 
 // _____________________Функция обработчика событий для кнопок------>
 
-function scrollToGeneral(scrollHeight){ // Общая функция с описанием скролла
+function scrollToGeneral(scrollHeight) { // Общая функция с описанием скролла
     event.preventDefault();
     window.scrollTo({
         top: scrollHeight,
@@ -34,43 +34,45 @@ function scrollToGeneral(scrollHeight){ // Общая функция с опис
     });
 }
 // <-----_________________Функция вычисления высоты скролла_________________
-function collectSections(button = 0){ /*Собираем массив из основных секций сайта. 
-                                        Передаем переменную button (индекс кнопки), 
-                                        которую используем для подсчёта необходимой высоты скролла.*/
+function collectSections(button = 0) {
+    /*Собираем массив из основных секций сайта. 
+                                           Передаем переменную button (индекс кнопки), 
+                                           которую используем для подсчёта необходимой высоты скролла.*/
     let height = 0;
-    const headerHeight = document.querySelector(".header__top").offsetHeight; /*Вычисляем высоту шапки. 
-                                                                                Вычитаем ёё, чтобы шапка 
-                                                                                не перекрывала блок после скролла.*/
+    const headerHeight = document.querySelector(".header__top").offsetHeight;
+    /*Вычисляем высоту шапки. 
+                                                                                   Вычитаем ёё, чтобы шапка 
+                                                                                   не перекрывала блок после скролла.*/
     const sectionsArr = document.getElementsByClassName("section-block");
     let i;
-    if (button === 0){ // С помощью if / else if подсчитываем высоту скролла для каждой кнопки в шапке.
+    if (button === 0) { // С помощью if / else if подсчитываем высоту скролла для каждой кнопки в шапке.
         return height;
-    } else if (button  === 1){
-        for(i = 0; i < 1; i++){
+    } else if (button === 1) {
+        for (i = 0; i < 1; i++) {
             height += sectionsArr[i].offsetHeight;
         }
         height -= headerHeight;
         return height;
-    } else if (button  === 2){
-        for(i = 0; i < 4; i++){
+    } else if (button === 2) {
+        for (i = 0; i < 4; i++) {
             height += sectionsArr[i].offsetHeight;
         }
         height -= headerHeight;
         return height;
-    } else if (button === 3){
-        for(i = 0; i < 8; i++){
+    } else if (button === 3) {
+        for (i = 0; i < 8; i++) {
             height += sectionsArr[i].offsetHeight;
         }
         height -= headerHeight;
         return height;
-    } else if (button === 4){
-        for(i = 0; i < 9; i++){
+    } else if (button === 4) {
+        for (i = 0; i < 9; i++) {
             height += sectionsArr[i].offsetHeight;
         }
         height -= headerHeight;
         return height;
-    } else if (button === 5){
-        for(i = 0; i < 10; i++){
+    } else if (button === 5) {
+        for (i = 0; i < 10; i++) {
             height += sectionsArr[i].offsetHeight;
         }
         height -= headerHeight;
@@ -92,18 +94,19 @@ function sliderScript() {
     let currentSlide = 0;
     dotsToggle();
 
-    function dotsToggle(){
+    function dotsToggle() {
         dots[currentSlide].classList.toggle("slider__dot-img--inactive");
         dotsChosen[currentSlide].classList.toggle("slider__dot-img--active");
     }
-    function lastDotToggle(){
+
+    function lastDotToggle() {
         dots[lastSlide].classList.toggle("slider__dot-img--inactive");
         dotsChosen[lastSlide].classList.toggle("slider__dot-img--active");
     }
 
     sliderArrows[0].addEventListener("click", () => {
         currentSlide--;
-        if (currentSlide < 0){
+        if (currentSlide < 0) {
             currentSlide = 5;
             dotsToggle();
             lastDotToggle();
@@ -116,7 +119,7 @@ function sliderScript() {
     });
     sliderArrows[1].addEventListener("click", () => {
         currentSlide++;
-        if (currentSlide > 5){
+        if (currentSlide > 5) {
             currentSlide = 0;
             lastDotToggle();
             dotsToggle();
