@@ -160,3 +160,14 @@ function sliderScript() {
     });
 }
 //_________Блок кода для слайдера_______------->
+// const header = document.querySelector(".header");
+// let headerScroll = 0;
+// let scrollPos = document.body.scrollTop;
+// console.log(scrollPos);
+
+// window.addEventListener("scroll", () => {
+//     headerScroll += 2;
+//     scrollPos = document.body.scrollTop;
+//     console.log(scrollPos); 
+//     header.style.backgroundPositionY = `${headerScroll}px`;
+// });
